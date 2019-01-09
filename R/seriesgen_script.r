@@ -11,3 +11,11 @@ bfun*1000+1000 -> bf1000
 c(bf100,bf500, bf1000) -> cs
 plot(cs~rx, xlab="x", ylab="y")
 
+# mixture estimation with EM algorithm
+library(mixtools)
+normalmixEM(x = cs) -> nmix.null
+normalmixEM(x = cs, k = 3) -> nmix3 # prior knowledge about 3 groups
+
+mus <- c(mean(bf100), mean(bf500), mean(bf1000))
+plot(nmix3$mu~mus, ylab="Estimated mean", xlab = "Mean")
+abline(0,1)
