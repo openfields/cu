@@ -1,5 +1,5 @@
-seriesgen <- function(a,b,c,d){
+seriesgen <- function(a,b,c,d,x){
 
-y = a * sin(b(x = c)) + d
-
+y = a * sin(b*(x + c)) + d
+return(y)
 }
